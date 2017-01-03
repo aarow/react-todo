@@ -7,7 +7,7 @@ var TodoItem = React.createClass({
       <div>
         <input ref="todoItem" type="checkbox" id={id} />
         <label htmlFor={id}>
-          {text} (id:{id})
+          {text}
         </label>
       </div>
     )
