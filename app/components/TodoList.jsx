@@ -1,17 +1,25 @@
 var React = require('react');
+var TodoItem = require('TodoItem');
 
 var TodoList = React.createClass({
+
+
   render: function () {
+    var {todos} = this.props;
+    var renderTodoItems = () => {
+      return todos.map((todo) => {
+        return (
+          <li>
+            <TodoItem key={todo.id} {...todo}></TodoItem>
+          </li>
+        )
+      });
+    };
+
     return (
       <div>
-        TodoList.jsx
         <ol>
-          <li>
-            <input ref="todoItem" type="checkbox"  />
-            <label htmlFor="">
-              Todo item
-            </label>
-          </li>
+          {renderTodoItems()}
         </ol>
       </div>
     )
