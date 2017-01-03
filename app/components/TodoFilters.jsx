@@ -1,33 +1,25 @@
 var React = require('react');
 
 var TodoFilters = React.createClass({
-  handleFilterTodos: function(e) {
-    e.preventDefault();
-  },
+  handleSearchTodos: function() {
+    var showCompleted = this.refs.showCompletedTodos.checked;
+    var searchText = this.refs.searchTodos.value;
 
-  handleSearchTodos: function(e) {
-    console.log(this.refs.searchTodos.value)
-    // search to do items
-  },
-
-  handleFilterCompleted: function(e) {
-    console.log(this.refs.showCompletedTodos.checked)
-
-    if(this.refs.showCompletedTodos.checked) {
-      // show completed to dos
-    } else {
-      // hide completed to dos
-    }
+    this.props.onSearchTodos(showCompleted, searchText);
   },
 
   render: function () {
     return (
       <div>
-        <form action="" onSubmit={this.handleFilterTodos}>
-          <input onKeyUp={this.handleSearchTodos} ref="searchTodos" type="search" placeholder="Find todo items"/>
-          <input onClick={this.handleFilterCompleted} ref="showCompletedTodos" id="showCompletedTodos" type="checkbox"/>
-          <label htmlFor="showCompletedTodos">Show completed items</label>
-      </form>
+        <div>
+          <input onChange={this.handleSearchTodos} ref="searchTodos" type="search" placeholder="Find todo items"/>
+        </div>
+        <div>
+          <label>
+            <input onChange={this.handleSearchTodos} ref="showCompletedTodos" type="checkbox"/>
+            Show completed items
+          </label>
+        </div>
       </div>
     )
   }
