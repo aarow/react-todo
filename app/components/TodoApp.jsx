@@ -28,6 +28,20 @@ var TodoApp = React.createClass({
     }
   },
 
+  handleAddTodo: function(text) {
+    alert('new todo: ' + text);
+    var todos = this.state.todos;
+
+    todos.push({
+      id: 5,
+      text: text
+    });
+
+    this.setState({
+      todos: todos
+    })
+  },
+
   render: function () {
     var {todos} = this.state;
     return (
@@ -35,7 +49,7 @@ var TodoApp = React.createClass({
         <h1 className="page-title">Todo App</h1>
         <TodoFilters></TodoFilters>
         <TodoList todos={todos}></TodoList>
-        <TodoForm></TodoForm>
+        <TodoForm onAddTodo={this.handleAddTodo}></TodoForm>
       </div>
     )
   }

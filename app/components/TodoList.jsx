@@ -9,8 +9,8 @@ var TodoList = React.createClass({
     var renderTodoItems = () => {
       return todos.map((todo) => {
         return (
-          <li>
-            <TodoItem key={todo.id} {...todo}></TodoItem>
+          <li key={todo.id} >
+            <TodoItem {...todo}></TodoItem>
           </li>
         )
       });
