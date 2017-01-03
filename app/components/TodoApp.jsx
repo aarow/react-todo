@@ -48,8 +48,6 @@ var TodoApp = React.createClass({
       showCompleted: showCompleted,
       searchText: searchText.toLowerCase()
     });
-
-    console.log(showCompleted, searchText)
   },
 
   render: function () {
