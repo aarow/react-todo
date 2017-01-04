@@ -22,6 +22,7 @@ module.exports = {
   },
   filterTodos: function(todos, showCompleted, searchText) {
     var filteredTodos = todos;
+    var searchText = searchText.toLowerCase();
 
     // filter by showCompleted
     filteredTodos = filteredTodos.filter((todo) => {
@@ -29,8 +30,15 @@ module.exports = {
     });
 
     // filter by searchText
+    filteredTodos = filteredTodos.filter((todo) => {
+      var text = todo.text.toLowerCase();
+      return searchText.length === 0 || text.indexOf(searchText) > -1;
+    });
 
     // sort with non-completed first
+    filteredTodos.sort((a, b) => {
+      return a.completed - b.completed;
+    });
 
     return filteredTodos;
   }
