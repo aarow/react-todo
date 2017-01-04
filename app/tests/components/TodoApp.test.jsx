@@ -46,7 +46,4 @@ describe('TodoApp', () => {
 
   });
 
-  it('should ', () => {
-
-  });
 });
