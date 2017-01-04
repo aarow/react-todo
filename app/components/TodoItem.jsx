@@ -2,11 +2,13 @@ var React = require('react');
 
 var TodoItem = React.createClass({
   render: function () {
-    var {text, id} = this.props;
+    var {text, id, completed} = this.props;
     return (
       <div>
-        <input ref="todoItem" type="checkbox" id={id} />
-        <label htmlFor={id}>
+        <label>
+          <input ref="todoItem" type="checkbox" checked={completed} onChange={ () => {
+              this.props.onToggle(id);
+            }} />
           {text}
         </label>
       </div>
