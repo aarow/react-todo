@@ -1,5 +1,6 @@
 var webpack = require('webpack');
 var path = require('path');
+var ExtractTextPlugin = require('extract-text-webpack-plugin');
 
 module.exports = {
   entry: [
@@ -14,7 +15,8 @@ module.exports = {
     new webpack.ProvidePlugin({
       '$': 'jquery',
       'jQuery': 'jquery'
-    })
+    }),
+    new ExtractTextPlugin('public/bundle.css')
   ],
   output: {
     path: __dirname,
@@ -41,6 +43,10 @@ module.exports = {
         },
         test: /\.jsx?$/,
         exclude: /(node_modules|bower_components)/
+      },
+      {
+        test:   /\.scss/,
+        loader: ExtractTextPlugin.extract('style', 'css!sass'),
       }
     ]
   },
@@ -48,6 +54,6 @@ module.exports = {
     includePaths: [
       path.resolve(__dirname, './node_modules/foundation-sites/scss')
     ]
-  },
-  devtool: 'cheap-module-eval-source-map'
+  }
+  , devtool: 'cheap-module-eval-source-map'
 };
