@@ -10,7 +10,7 @@ var TodoFilters = React.createClass({
 
   render: function () {
     return (
-      <div>
+      <div className="container__header">
         <div>
           <input onChange={this.handleSearchTodos} ref="searchTodos" type="search" placeholder="Find todo items"/>
         </div>

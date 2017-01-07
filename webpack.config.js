@@ -1,6 +1,7 @@
 var webpack = require('webpack');
 var path = require('path');
 var ExtractTextPlugin = require('extract-text-webpack-plugin');
+var BrowserSyncPlugin = require('browser-sync-webpack-plugin');
 
 module.exports = {
   entry: [
@@ -16,7 +17,18 @@ module.exports = {
       '$': 'jquery',
       'jQuery': 'jquery'
     }),
-    new ExtractTextPlugin('public/bundle.css')
+    new ExtractTextPlugin('public/bundle.css'),
+    new BrowserSyncPlugin({
+      // browse to http://localhost:3000/ during development,
+      // ./public directory is being served
+      host: 'localhost',
+      port: 3000,
+      server: 'public',
+      files: ['public/*css']
+    },{
+      reload: false
+    })
+
   ],
   output: {
     path: __dirname,
