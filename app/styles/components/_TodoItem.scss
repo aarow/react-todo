@@ -1,3 +1,36 @@
+ol {
+  margin: 0;
+  list-style: none;
+}
+
+.todo label {
+  display: flex;
+  cursor: pointer;
+  align-items: center;
+  padding: 1rem;
+  transition: all 250ms ease;
+
+  p,
+  input {
+    margin: 0;
+  }
+
+  > :first-child {
+    margin-right: 1rem;
+  }
+
+  &:hover {
+    background: #f0f0f0;
+  }
+}
+
 .todo__subtext {
-  color: $light-color;
+  color: #999999;
+}
+
+.todo-completed {
+  p, .todo__subtext {
+    color: $light-color;
+    text-decoration: line-through;
+  }
 }
