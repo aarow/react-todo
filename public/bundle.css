@@ -3488,5 +3488,27 @@ table.hover tr:nth-of-type(even):hover {
   margin: 2rem 0;
   text-align: center; }
 
+ol {
+  margin: 0;
+  list-style: none; }
+
+.todo label {
+  display: flex;
+  cursor: pointer;
+  align-items: center;
+  padding: 1rem;
+  transition: all 250ms ease; }
+  .todo label p,
+  .todo label input {
+    margin: 0; }
+  .todo label > :first-child {
+    margin-right: 1rem; }
+  .todo label:hover {
+    background: #f0f0f0; }
+
 .todo__subtext {
-  color: #aaaaaa; }
+  color: #999999; }
+
+.todo-completed p, .todo-completed .todo__subtext {
+  color: #aaaaaa;
+  text-decoration: line-through; }
